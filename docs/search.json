@@ -1,0 +1,205 @@
+[
+  {
+    "objectID": "slides/01-clase.html#acerca-de-nosotras",
+    "href": "slides/01-clase.html#acerca-de-nosotras",
+    "title": "Taller R - DGA",
+    "section": "Acerca de nosotras 👩🏽‍💻",
+    "text": "Acerca de nosotras 👩🏽‍💻\n\nSara Acevedo (🐈): Profesora Asistente Facultad de Agronomía de Sistemas Naturales - Física de suelos / Suelos urbanos / Ciencia Reproducible\nAlejandra Vega (🐕): Investigadora CEDEUS - Geoquímica de suelos / Suelos urbanos / Calidad del Agua"
+  },
+  {
+    "objectID": "slides/01-clase.html#objetivos-de-la-clase",
+    "href": "slides/01-clase.html#objetivos-de-la-clase",
+    "title": "Taller R - DGA",
+    "section": "Objetivos de la clase",
+    "text": "Objetivos de la clase\n\nConceptos e ideas generales de reproducibilidad\nBuenas prácticas para escribir código\nTidyverse"
+  },
+  {
+    "objectID": "slides/01-clase.html#porqué",
+    "href": "slides/01-clase.html#porqué",
+    "title": "Taller R - DGA",
+    "section": "Porqué?",
+    "text": "Porqué?\n\n\n\n\n\n\nCódigo eficiente nos hace la vida más fácil\n\n\n\n\nSomos humanos: código claro y entendible minimiza posibilidad de errores\n\n\n\n\nFilosofía Tidyverse ordenada"
+  },
+  {
+    "objectID": "slides/01-clase.html#reglas-de-oro-generales-de-reproducibilidad",
+    "href": "slides/01-clase.html#reglas-de-oro-generales-de-reproducibilidad",
+    "title": "Taller R - DGA",
+    "section": "Reglas de oro generales de reproducibilidad",
+    "text": "Reglas de oro generales de reproducibilidad\nLista según Reproducible Data Science\n\nLos datos crudos nunca deben modificarse. Datos procesados deben ir en una carpeta aparte.\nResultados de código deben guardarse en su propia carpeta.\nLos códigos van en su propia carpeta.\nSiempre modularizar el código: en lugar de un único script gigante, dividir el flujo de trabajo en scripts cortos.\nApuntar escribir a código seco: DRY do not repeat yourself"
+  },
+  {
+    "objectID": "slides/01-clase.html#escribir-buen-código",
+    "href": "slides/01-clase.html#escribir-buen-código",
+    "title": "Taller R - DGA",
+    "section": "Escribir “buen” código",
+    "text": "Escribir “buen” código\n\n\n\n\n\n\nLeíble por humanos y computadoras, ordenable\n\n\n\n\nReusable\n\n\n\n\nRobusto"
+  },
+  {
+    "objectID": "slides/01-clase.html#leíble-por-humanos-y-computadoras-ordenable",
+    "href": "slides/01-clase.html#leíble-por-humanos-y-computadoras-ordenable",
+    "title": "Taller R - DGA",
+    "section": "Leíble por humanos y computadoras, ordenable",
+    "text": "Leíble por humanos y computadoras, ordenable\n\nNombrar archivos y carpetas de forma consistente\nComentar el código\nOrdenar las carpetas y dejar un registro de instrucciones"
+  },
+  {
+    "objectID": "slides/01-clase.html#nombrar-archivos-y-carpetas-de-forma-consistente",
+    "href": "slides/01-clase.html#nombrar-archivos-y-carpetas-de-forma-consistente",
+    "title": "Taller R - DGA",
+    "section": "Nombrar archivos y carpetas de forma consistente",
+    "text": "Nombrar archivos y carpetas de forma consistente\n\nUsa nombres claros, sin espacios ni caracteres especiales\nUsar prefijos numéricos en scripts, para ayudar al orden alfabético y cronológico."
+  },
+  {
+    "objectID": "slides/01-clase.html#comentar-el-código",
+    "href": "slides/01-clase.html#comentar-el-código",
+    "title": "Taller R - DGA",
+    "section": "Comentar el código",
+    "text": "Comentar el código\n\nLa idea es explicar el por qué del código, no solamente que hace.\nQue otro humano entienda el razonamiento detrás del código."
+  },
+  {
+    "objectID": "slides/01-clase.html#ordenar-los-directorios-y-carpetas",
+    "href": "slides/01-clase.html#ordenar-los-directorios-y-carpetas",
+    "title": "Taller R - DGA",
+    "section": "Ordenar los directorios y carpetas",
+    "text": "Ordenar los directorios y carpetas\n\nEvitar “path spaghetti” ni rutas absolutas (C:/Users/…)\nDejar huella para tu “yo futuro”.\nUn README.md claro con instrucciones mínimas.\nAyuda a que cualquier persona (incluyéndote a ti) pueda retomar el proyecto meses después."
+  },
+  {
+    "objectID": "slides/01-clase.html#section-1",
+    "href": "slides/01-clase.html#section-1",
+    "title": "Taller R - DGA",
+    "section": "",
+    "text": "Figure 1: Enfoques"
+  },
+  {
+    "objectID": "slides/01-clase.html#reusable",
+    "href": "slides/01-clase.html#reusable",
+    "title": "Taller R - DGA",
+    "section": "Reusable",
+    "text": "Reusable\n\nSeparar datos de scripts.\nCrear el código para usar constantes solo una vez.\nSolo una cosa a la vez, aplica para funciones y scripts.\nCódigo seco (DRY) do not repear yourself."
+  },
+  {
+    "objectID": "slides/01-clase.html#robusto",
+    "href": "slides/01-clase.html#robusto",
+    "title": "Taller R - DGA",
+    "section": "Robusto",
+    "text": "Robusto\n\nSi hay las suposiciones o condiciones, declararlas\nVerificar los valores antes de procesarlos.\nIdentificar excepciones.\nGenerar errores cuando no se cumplan las expectativas."
+  },
+  {
+    "objectID": "slides/01-clase.html#robusto-1",
+    "href": "slides/01-clase.html#robusto-1",
+    "title": "Taller R - DGA",
+    "section": "Robusto",
+    "text": "Robusto\n\nnombre_region &lt;- function(x) {\n  regiones &lt;- data.frame(\n    numero = 1:16,\n    region = c(\n      \"Tarapacá\", \"Antofagasta\", \"Atacama\", \"Coquimbo\", \"Valparaíso\",\n      \"O'Higgins\", \"Maule\", \"Biobío\", \"La Araucanía\", \"Los Lagos\",\n      \"Aysén\", \"Magallanes\", \"Metropolitana\", \"Los Ríos\",\n      \"Arica y Parinacota\", \"Ñuble\"\n    )\n  )\n  regiones$region[match(x, regiones$numero)]\n}\n\nnombre_region(13)\n\n[1] \"Metropolitana\""
+  },
+  {
+    "objectID": "slides/01-clase.html#robusto-2",
+    "href": "slides/01-clase.html#robusto-2",
+    "title": "Taller R - DGA",
+    "section": "Robusto",
+    "text": "Robusto\n\nnombre_region &lt;- function(x) {\n  regiones &lt;- data.frame(\n    numero = 1:16,\n    region = c(\n      \"Tarapacá\", \"Antofagasta\", \"Atacama\", \"Coquimbo\", \"Valparaíso\",\n      \"O'Higgins\", \"Maule\", \"Biobío\", \"La Araucanía\", \"Los Lagos\",\n      \"Aysén\", \"Magallanes\", \"Metropolitana\", \"Los Ríos\",\n      \"Arica y Parinacota\", \"Ñuble\"\n    )\n  )\n  regiones$region[match(x, regiones$numero)]\n}\n\nnombre_region(17)\n\n[1] NA"
+  },
+  {
+    "objectID": "slides/01-clase.html#análisis-exploratorio-de-datos-eda",
+    "href": "slides/01-clase.html#análisis-exploratorio-de-datos-eda",
+    "title": "Taller R - DGA",
+    "section": "Análisis exploratorio de datos (EDA)",
+    "text": "Análisis exploratorio de datos (EDA)\n\nPreguntas sobre los datos de investigación.\nBuscar respuestas visualizando, transformando y modelando.\nEn base a lo explorado, refinar hipótesis y preguntas anteriores.\nNuevas preguntas → Nuevos análisis → Nuevos modelos.\nLibrería Tidyverse"
+  },
+  {
+    "objectID": "slides/01-clase.html#flujo-de-trabajo-eda",
+    "href": "slides/01-clase.html#flujo-de-trabajo-eda",
+    "title": "Taller R - DGA",
+    "section": "Flujo de trabajo EDA",
+    "text": "Flujo de trabajo EDA\n\n\n\n\n\n\nComenzamos importando datos\n\n\n\n\nHacemos nuestro EDA transformar → visualizar → modelar\n\n\n\n\nAvanzamos a la comunicación (posters, presentaciones, reportes, papers…)"
+  },
+  {
+    "objectID": "slides/01-clase.html#librería-en-r-tidyverse",
+    "href": "slides/01-clase.html#librería-en-r-tidyverse",
+    "title": "Taller R - DGA",
+    "section": "Librería en R: Tidyverse",
+    "text": "Librería en R: Tidyverse\nTidyverse:\n\nMegapaquete que contiene paquetes para el análisis datos\nConstruidos con los mismos principios\n\nLa filosofía del paquete\n\nReusar estructuras de datos\nUtilizar el operador pipe %&gt;% para combinar funciones\nPensado para “humanos”"
+  },
+  {
+    "objectID": "slides/01-clase.html#librería-en-r-tidyverse-1",
+    "href": "slides/01-clase.html#librería-en-r-tidyverse-1",
+    "title": "Taller R - DGA",
+    "section": "Librería en R: Tidyverse",
+    "text": "Librería en R: Tidyverse\nEjemplo: un pedazo de torta a partir de ingredientes\n\nIngredientes (harina, azúcar, etc.) 🛒\nMezclar en un bowl ingredientes 🥣\nHornear la mezcla ⏲️\nDecorar el bizcocho 🥧\nCortar 🍰"
+  },
+  {
+    "objectID": "slides/01-clase.html#como-veríamos-el-código-en-r",
+    "href": "slides/01-clase.html#como-veríamos-el-código-en-r",
+    "title": "Taller R - DGA",
+    "section": "Como veríamos el código en R",
+    "text": "Como veríamos el código en R\ningredientes(c=(harina, azúcar)) %&gt;% \nmezclar(🥣) %&gt;% \nhornar(⏲️) %&gt;% \ndecorar(🥧) %&gt;% \ncortar(🍰)"
+  },
+  {
+    "objectID": "slides/01-clase.html#paquetes",
+    "href": "slides/01-clase.html#paquetes",
+    "title": "Taller R - DGA",
+    "section": "Paquetes",
+    "text": "Paquetes\n\nggplot2 : visualización de datos\ndplyr : transformar datos\n\ntidyr : formatear los datos (ejemplo pasando de wide a long)\nreadr : importar datos de texto (csv, tsv…).\n\npurrr : programación funcional\ntibble : data frames tibble\nstringr y forcats : manipulación de cadenas de texto y factores (categorías)."
+  },
+  {
+    "objectID": "slides/02-clase.html#acerca-de-nosotras",
+    "href": "slides/02-clase.html#acerca-de-nosotras",
+    "title": "Taller R - DGA",
+    "section": "Acerca de nosotras 👩🏽‍💻",
+    "text": "Acerca de nosotras 👩🏽‍💻\n\nSara Acevedo (🐈): Profesora Asistente Facultad de Agronomía de Sistemas Naturales - Física de suelos / Suelos urbanos / Ciencia Reproducible\nAlejandra Vega (🐕): Investigadora CEDEUS - Geoquímica de suelos / Suelos urbanos / Calidad del Agua"
+  },
+  {
+    "objectID": "slides/02-clase.html#objetivos-de-la-clase",
+    "href": "slides/02-clase.html#objetivos-de-la-clase",
+    "title": "Taller R - DGA",
+    "section": "Objetivos de la clase",
+    "text": "Objetivos de la clase\n\nContinuamos con tidyverse (más avanzado)\nJoin y Pivot\nIntroducción a ggplot2"
+  },
+  {
+    "objectID": "slides/02-clase.html#formato-tidy",
+    "href": "slides/02-clase.html#formato-tidy",
+    "title": "Taller R - DGA",
+    "section": "Formato tidy",
+    "text": "Formato tidy\n\nCada variable forma su propia columna\nCada observación forma una fila\nY cada celda es un único valor\n\n Más info en R4DS tidy data"
+  },
+  {
+    "objectID": "slides/02-clase.html#formatos-long-y-wide",
+    "href": "slides/02-clase.html#formatos-long-y-wide",
+    "title": "Taller R - DGA",
+    "section": "Formatos long y wide",
+    "text": "Formatos long y wide\n\nEl formato wide es el formato típico tidy rectangular\nEl formato long se usa para agrupar\nEl formato long se usa para visualización de datos con ggplot2 y hacer estadística"
+  },
+  {
+    "objectID": "slides/02-clase.html#es-común-intercambiar-entre-formatos",
+    "href": "slides/02-clase.html#es-común-intercambiar-entre-formatos",
+    "title": "Taller R - DGA",
+    "section": "Es común intercambiar entre formatos",
+    "text": "Es común intercambiar entre formatos\n\n\n\n\n\npivot_longer() transforma a formato long\npivot_wider() transforma a formato wide\nAcá más material dinámico por Garrick Aden-Buie"
+  },
+  {
+    "objectID": "slides/02-clase.html#uniones-de-datos-operaciones-join",
+    "href": "slides/02-clase.html#uniones-de-datos-operaciones-join",
+    "title": "Taller R - DGA",
+    "section": "Uniones de datos: operaciones join",
+    "text": "Uniones de datos: operaciones join\ninner_join() fusiona variables de dos conjuntos de datos, pero conserva sólo las filas con un ID común"
+  },
+  {
+    "objectID": "slides/02-clase.html#uniones-de-datos-operaciones-join-1",
+    "href": "slides/02-clase.html#uniones-de-datos-operaciones-join-1",
+    "title": "Taller R - DGA",
+    "section": "Uniones de datos: operaciones join",
+    "text": "Uniones de datos: operaciones join\nleft_join() fusiona variables de dos conjuntos de datos, pero conserva sólo los ID común de la izquierda"
+  },
+  {
+    "objectID": "slides/02-clase.html#uniones-de-datos-operaciones-join-2",
+    "href": "slides/02-clase.html#uniones-de-datos-operaciones-join-2",
+    "title": "Taller R - DGA",
+    "section": "Uniones de datos: operaciones join",
+    "text": "Uniones de datos: operaciones join\nright_join() fusiona variables de dos conjuntos de datos, pero conserva sólo los ID común de la derecha"
+  },
+  {
+    "objectID": "slides/02-clase.html#uniones-de-datos-operaciones-join-3",
+    "href": "slides/02-clase.html#uniones-de-datos-operaciones-join-3",
+    "title": "Taller R - DGA",
+    "section": "Uniones de datos: operaciones join",
+    "text": "Uniones de datos: operaciones join\nfull_join() retiene todas las filas de los dos conjuntos de datos de entrada e inserta NA cuando falta un ID"
+  }
+]

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="02-clase_files/libs/clipboard/clipboard.min.js"></script>
-<script src="02-clase_files/libs/quarto-html/tabby.min.js"></script>
-<script src="02-clase_files/libs/quarto-html/popper.min.js"></script>
-<script src="02-clase_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="02-clase_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="02-clase_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="02-clase_files/libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.33">
 
   <meta name="author" content="Dra. Sara E. Acevedo">
@@ -16,8 +16,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="02-clase_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="02-clase_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -30,12 +30,78 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="02-clase_files/libs/revealjs/dist/theme/quarto-f563837468303362081e247dddd440d0.css">
-  <link href="02-clase_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="02-clase_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="02-clase_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="02-clase_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-f563837468303362081e247dddd440d0.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
@@ -130,7 +196,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Taller R - DGA</h1>
-  <p class="subtitle">Tidyverse + ggplot2</p>
+  <p class="subtitle">Formatos y buenas prácticas de programación en R usando Tidyverse</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -169,63 +235,268 @@ Dra. Alejandra S. Vega <a href="https://orcid.org/0000-0002-2842-8178" class="qu
 <section id="objetivos-de-la-clase" class="slide level2">
 <h2>Objetivos de la clase</h2>
 <ul>
-<li class="fragment">Continuamos con tidyverse (más avanzado)</li>
-<li class="fragment">Join y Pivot</li>
-<li class="fragment">Introducción a ggplot2</li>
+<li class="fragment">Conceptos e ideas generales de reproducibilidad</li>
+<li class="fragment">Buenas prácticas para escribir código</li>
+<li class="fragment">Tidyverse</li>
 </ul>
 </section>
-<section id="formato-tidy" class="slide level2">
-<h2>Formato tidy</h2>
-<ul>
-<li>Cada variable forma su propia columna</li>
-<li>Cada observación forma una fila</li>
-<li>Y cada celda es un único valor</li>
-</ul>
-<p><img data-src="figuras/tidy_data.png" alt="tidy data"> Más info en R4DS <a href="https://r4ds.had.co.nz/tidy-data.html">tidy data</a></p>
-</section>
-<section id="formatos-long-y-wide" class="slide level2">
-<h2>Formatos long y wide</h2>
-<ul>
-<li>El formato <em>wide</em> es el formato típico tidy rectangular</li>
-<li>El formato <em>long</em> se usa para agrupar</li>
-<li>El formato <em>long</em> se usa para visualización de datos con <code>ggplot2</code> y hacer estadística</li>
-</ul>
-</section>
-<section id="es-común-intercambiar-entre-formatos" class="slide level2">
-<h2>Es común intercambiar entre formatos</h2>
+<section id="porqué" class="slide level2">
+<h2>Porqué?</h2>
 <div class="columns">
-<div class="column" style="width:40%;">
-<p><img data-src="figuras/pivot_wider_longer.gif"></p>
-</div><div class="column" style="width:60%;">
+<div class="column" style="width:50%;">
+<p><img data-src="figuras/tidyverse.png" data-fig-cap="Una constelación de hex stickers del ecosistema tidyverse por Allison Horst"></p>
+</div><div class="column" style="width:50%;">
+<div class="fragment fade-up">
 <ul>
-<li><code>pivot_longer()</code> transforma a formato long</li>
-<li><code>pivot_wider()</code> transforma a formato wide</li>
-<li><a href="https://github.com/gadenbuie/tidyexplain">Acá</a> más material dinámico por Garrick Aden-Buie</li>
+<li>Código eficiente nos hace la vida más fácil</li>
 </ul>
+</div>
+<div class="fragment fade-up">
+<ul>
+<li>Somos humanos: código claro y entendible minimiza posibilidad de errores</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<ul>
+<li>Filosofía Tidyverse ordenada</li>
+</ul>
+</div>
 </div></div>
 </section>
-<section id="uniones-de-datos-operaciones-join" class="slide level2">
-<h2>Uniones de datos: operaciones join</h2>
-<p>inner_join() fusiona variables de dos conjuntos de datos, pero conserva sólo las filas con un ID común</p>
+<section id="reglas-de-oro-generales-de-reproducibilidad" class="slide level2">
+<h2>Reglas de oro generales de reproducibilidad</h2>
+<p>Lista según <a href="https://ecorepsci.github.io/reproducible-science/project-organization.html">Reproducible Data Science</a></p>
+<ol type="1">
+<li>Los datos crudos <strong>nunca</strong> deben modificarse. Datos procesados deben ir en una carpeta aparte.</li>
+<li>Resultados de código deben guardarse en su propia carpeta.</li>
+<li>Los códigos van en su propia carpeta.</li>
+<li>Siempre modularizar el código: en lugar de un único script gigante, dividir el flujo de trabajo en scripts cortos.</li>
+<li>Apuntar escribir a código seco: <strong>DRY</strong> do not repeat yourself</li>
+</ol>
+</section>
+<section id="escribir-buen-código" class="slide level2">
+<h2>Escribir “buen” código</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="https://psyteachr.github.io/reprores-v4/images/memes/wickham-shitty-code.png"></p>
+</div><div class="column" style="width:50%;">
+<div class="fragment fade-up">
+<ul>
+<li>Leíble por humanos y computadoras, ordenable</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<ul>
+<li>Reusable</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<ul>
+<li>Robusto</li>
+</ul>
+</div>
+</div></div>
+</section>
+<section id="leíble-por-humanos-y-computadoras-ordenable" class="slide level2">
+<h2>Leíble por humanos y computadoras, ordenable</h2>
+<ol type="1">
+<li>Nombrar archivos y carpetas de forma consistente</li>
+<li>Comentar el código</li>
+<li>Ordenar las carpetas y dejar un registro de instrucciones</li>
+</ol>
+</section>
+<section id="nombrar-archivos-y-carpetas-de-forma-consistente" class="slide level2">
+<h2>Nombrar archivos y carpetas de forma consistente</h2>
+<ul>
+<li>Usa nombres claros, sin espacios ni caracteres especiales</li>
+<li>Usar prefijos numéricos en scripts, para ayudar al orden alfabético y cronológico.</li>
+</ul>
+</section>
+<section id="section" class="slide level2">
+<h2><img data-src="figuras/camello.jpeg" class="quarto-figure quarto-figure-center" style="height:40.0%"></h2>
+</section>
+<section id="comentar-el-código" class="slide level2">
+<h2>Comentar el código</h2>
+<ul>
+<li>La idea es explicar el por qué del código, no solamente que hace.</li>
+<li>Que otro humano entienda el razonamiento detrás del código.</li>
+</ul>
+</section>
+<section id="ordenar-los-directorios-y-carpetas" class="slide level2">
+<h2>Ordenar los directorios y carpetas</h2>
+<ul>
+<li>Evitar “path spaghetti” ni rutas absolutas (C:/Users/…)</li>
+<li>Dejar huella para tu “yo futuro”.</li>
+<li>Un README.md claro con instrucciones mínimas.</li>
+<li>Ayuda a que cualquier persona (incluyéndote a ti) pueda retomar el proyecto meses después.</li>
+</ul>
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<div id="fig-folder" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-folder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="https://ecorepsci.github.io/reproducible-science/img/activity-based-directory-organization.jpg"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="https://ecorepsci.github.io/reproducible-science/img/project-based-directory-organization.jpg"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-folder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Enfoques
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="reusable" class="slide level2">
+<h2>Reusable</h2>
+<ul>
+<li class="fragment">Separar datos de scripts.</li>
+<li class="fragment">Crear el código para usar constantes solo una vez.</li>
+<li class="fragment">Solo una cosa a la vez, aplica para funciones y scripts.</li>
+<li class="fragment">Código seco (DRY) do not repear yourself.</li>
+</ul>
+</section>
+<section id="robusto" class="slide level2">
+<h2>Robusto</h2>
+<ul>
+<li class="fragment">Si hay las suposiciones o condiciones, declararlas</li>
+<li class="fragment">Verificar los valores antes de procesarlos.</li>
+<li class="fragment">Identificar excepciones.</li>
+<li class="fragment">Generar errores cuando no se cumplan las expectativas.</li>
+</ul>
+</section>
+<section id="robusto-1" class="slide level2">
+<h2>Robusto</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>nombre_region <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb1-2"><a></a>  regiones <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb1-3"><a></a>    <span class="at">numero =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">16</span>,</span>
+<span id="cb1-4"><a></a>    <span class="at">region =</span> <span class="fu">c</span>(</span>
+<span id="cb1-5"><a></a>      <span class="st">"Tarapacá"</span>, <span class="st">"Antofagasta"</span>, <span class="st">"Atacama"</span>, <span class="st">"Coquimbo"</span>, <span class="st">"Valparaíso"</span>,</span>
+<span id="cb1-6"><a></a>      <span class="st">"O'Higgins"</span>, <span class="st">"Maule"</span>, <span class="st">"Biobío"</span>, <span class="st">"La Araucanía"</span>, <span class="st">"Los Lagos"</span>,</span>
+<span id="cb1-7"><a></a>      <span class="st">"Aysén"</span>, <span class="st">"Magallanes"</span>, <span class="st">"Metropolitana"</span>, <span class="st">"Los Ríos"</span>,</span>
+<span id="cb1-8"><a></a>      <span class="st">"Arica y Parinacota"</span>, <span class="st">"Ñuble"</span></span>
+<span id="cb1-9"><a></a>    )</span>
+<span id="cb1-10"><a></a>  )</span>
+<span id="cb1-11"><a></a>  regiones<span class="sc">$</span>region[<span class="fu">match</span>(x, regiones<span class="sc">$</span>numero)]</span>
+<span id="cb1-12"><a></a>}</span>
+<span id="cb1-13"><a></a></span>
+<span id="cb1-14"><a></a><span class="fu">nombre_region</span>(<span class="dv">13</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Metropolitana"</code></pre>
+</div>
+</div>
+</section>
+<section id="robusto-2" class="slide level2">
+<h2>Robusto</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>nombre_region <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb3-2"><a></a>  regiones <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb3-3"><a></a>    <span class="at">numero =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">16</span>,</span>
+<span id="cb3-4"><a></a>    <span class="at">region =</span> <span class="fu">c</span>(</span>
+<span id="cb3-5"><a></a>      <span class="st">"Tarapacá"</span>, <span class="st">"Antofagasta"</span>, <span class="st">"Atacama"</span>, <span class="st">"Coquimbo"</span>, <span class="st">"Valparaíso"</span>,</span>
+<span id="cb3-6"><a></a>      <span class="st">"O'Higgins"</span>, <span class="st">"Maule"</span>, <span class="st">"Biobío"</span>, <span class="st">"La Araucanía"</span>, <span class="st">"Los Lagos"</span>,</span>
+<span id="cb3-7"><a></a>      <span class="st">"Aysén"</span>, <span class="st">"Magallanes"</span>, <span class="st">"Metropolitana"</span>, <span class="st">"Los Ríos"</span>,</span>
+<span id="cb3-8"><a></a>      <span class="st">"Arica y Parinacota"</span>, <span class="st">"Ñuble"</span></span>
+<span id="cb3-9"><a></a>    )</span>
+<span id="cb3-10"><a></a>  )</span>
+<span id="cb3-11"><a></a>  regiones<span class="sc">$</span>region[<span class="fu">match</span>(x, regiones<span class="sc">$</span>numero)]</span>
+<span id="cb3-12"><a></a>}</span>
+<span id="cb3-13"><a></a></span>
+<span id="cb3-14"><a></a><span class="fu">nombre_region</span>(<span class="dv">17</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+</div>
+</section>
+<section id="análisis-exploratorio-de-datos-eda" class="slide level2">
+<h2>Análisis exploratorio de datos (EDA)</h2>
+<ul>
+<li class="fragment">Preguntas sobre los datos de investigación.</li>
+<li class="fragment">Buscar respuestas visualizando, transformando y modelando.</li>
+<li class="fragment">En base a lo explorado, refinar hipótesis y preguntas anteriores.</li>
+<li class="fragment">Nuevas preguntas → Nuevos análisis → Nuevos modelos.</li>
+<li class="fragment">Librería Tidyverse</li>
+</ul>
+</section>
+<section id="flujo-de-trabajo-eda" class="slide level2">
+<h2>Flujo de trabajo EDA</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="https://posit.co/wp-content/themes/Posit/public/markdown-blogs/artist-in-residence/horst-eco-r4ds.png"></p>
+</div><div class="column" style="width:50%;">
+<div class="fragment fade-up">
+<ul>
+<li>Comenzamos importando datos</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<ul>
+<li>Hacemos nuestro EDA transformar → visualizar → modelar</li>
+</ul>
+</div>
+<div class="fragment fade-up">
+<ul>
+<li>Avanzamos a la comunicación (posters, presentaciones, reportes, papers…)</li>
+</ul>
+</div>
+</div></div>
+</section>
+<section id="librería-en-r-tidyverse" class="slide level2">
+<h2>Librería en R: Tidyverse</h2>
+<p>Tidyverse:</p>
+<ul>
+<li>Megapaquete que contiene paquetes para el análisis datos</li>
+<li>Construidos con los mismos principios</li>
+</ul>
+<p>La filosofía del paquete</p>
+<ul>
+<li>Reusar estructuras de datos</li>
+<li>Utilizar el operador <code>pipe %&gt;%</code> para combinar funciones</li>
+<li>Pensado para “humanos”</li>
+</ul>
+</section>
+<section id="librería-en-r-tidyverse-1" class="slide level2">
+<h2>Librería en R: Tidyverse</h2>
+<p>Ejemplo: un pedazo de torta a partir de ingredientes</p>
+<ul>
+<li class="fragment">Ingredientes (harina, azúcar, etc.) 🛒</li>
+<li class="fragment">Mezclar en un bowl ingredientes 🥣</li>
+<li class="fragment">Hornear la mezcla ⏲️</li>
+<li class="fragment">Decorar el bizcocho 🥧</li>
+<li class="fragment">Cortar 🍰</li>
+</ul>
+</section>
+<section id="como-veríamos-el-código-en-r" class="slide level2">
+<h2>Como veríamos el código en R</h2>
+<pre><code>ingredientes(c=(harina, azúcar)) %&gt;% 
+mezclar(🥣) %&gt;% 
+hornar(⏲️) %&gt;% 
+decorar(🥧) %&gt;% 
+cortar(🍰)
+</code></pre>
+</section>
+<section id="paquetes" class="slide level2">
+<h2>Paquetes</h2>
+<ul>
+<li><strong>ggplot2</strong> : visualización de datos</li>
+<li><strong>dplyr</strong> : transformar datos<br>
+</li>
+<li><strong>tidyr</strong> : formatear los datos (ejemplo pasando de wide a long)</li>
+<li><strong>readr</strong> : importar datos de texto (csv, tsv…).<br>
+</li>
+<li><strong>purrr</strong> : programación funcional</li>
+<li><strong>tibble</strong> : data frames tibble</li>
+<li><strong>stringr</strong> y <strong>forcats</strong> : manipulación de cadenas de texto y factores (categorías).</li>
+</ul>
+</section>
+<section id="clase-introductoria-lista-veamos-código" class="title-slide slide level1 center" data-background-color="#40666e">
+<h1><span class="r-fit-text">Clase introductoria lista! Veamos código 👩🏽‍💻</span></h1>
 
-<img data-src="figuras/inner.gif" style="width:80.0%" class="r-stretch"></section>
-<section id="uniones-de-datos-operaciones-join-1" class="slide level2">
-<h2>Uniones de datos: operaciones join</h2>
-<p>left_join() fusiona variables de dos conjuntos de datos, pero conserva sólo los ID común de la izquierda</p>
-
-<img data-src="figuras/left.gif" style="width:80.0%" class="r-stretch"></section>
-<section id="uniones-de-datos-operaciones-join-2" class="slide level2">
-<h2>Uniones de datos: operaciones join</h2>
-<p>right_join() fusiona variables de dos conjuntos de datos, pero conserva sólo los ID común de la derecha</p>
-
-<img data-src="figuras/right.gif" style="width:80.0%" class="r-stretch"></section>
-<section id="uniones-de-datos-operaciones-join-3" class="slide level2">
-<h2>Uniones de datos: operaciones join</h2>
-<p>full_join() retiene todas las filas de los dos conjuntos de datos de entrada e inserta <code>NA</code> cuando falta un ID</p>
-
-<img data-src="figuras/full.gif" style="width:80.0%" class="r-stretch"></section>
-<section id="clase-lista-veamos-código" class="title-slide slide level1 center" data-background-color="#40666e">
-<h1><span class="r-fit-text">Clase lista! Veamos código 👩🏽‍💻</span></h1>
 
 </section>
     </div>
@@ -236,19 +507,19 @@ Dra. Alejandra S. Vega <a href="https://orcid.org/0000-0002-2842-8178" class="qu
 </div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="02-clase_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="02-clase_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="02-clase_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="02-clase_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="02-clase_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="02-clase_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="02-clase_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="02-clase_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="02-clase_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="02-clase_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -443,6 +714,44 @@ Dra. Alejandra S. Vega <a href="https://orcid.org/0000-0002-2842-8178" class="qu
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
