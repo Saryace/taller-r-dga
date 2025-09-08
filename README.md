@@ -12,7 +12,11 @@ Hacer click en el botón verde "code" y luego descargar en la opción "download 
 - Libro R4DS [acá link](https://es.r4ds.hadley.nz/)
 
 ## Que aprenderemos?
-- Importar y exportar datos
-- Librería Tidyverse
-- Buenas prácticas
-- Quarto - reportes
+- 🗄️ Importar y exportar datos
+- 🧹 Librería Tidyverse
+- 🆗 Buenas prácticas
+- 📁 Quarto - reportes
+
+## Link a slides clases
+👩🏽‍🏫[Clase 01](https://saryace.github.io/taller-r-dga/slides/01-clase.html)
+👩🏽‍🏫[Clase 02](https://saryace.github.io/taller-r-dga/slides/02-clase.html)
