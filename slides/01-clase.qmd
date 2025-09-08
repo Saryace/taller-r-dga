@@ -1,0 +1,266 @@
+---
+title: Taller R - DGA
+subtitle: Formatos y buenas prácticas de programación en R usando Tidyverse
+format: revealjs
+author:
+  - name: Dra. Sara E. Acevedo
+    orcid: 0000-0003-3203-2106
+    email: seaceved@uc.cl
+    affiliations: PUC - CEDEUS
+  - name: Dra. Alejandra S. Vega
+    orcid: 0000-0002-2842-8178
+    email: asvega@uc.cl
+    affiliations: CEDEUS
+date: "08/09/2025"
+date-format: "iso"
+---
+
+## Acerca de nosotras 👩🏽‍💻
+
+- **Sara Acevedo** (🐈): Profesora Asistente Facultad de Agronomía de Sistemas Naturales - Física de suelos / Suelos urbanos / Ciencia Reproducible 
+
+- **Alejandra Vega** (🐕): Investigadora CEDEUS - Geoquímica de suelos / Suelos urbanos / Calidad del Agua
+
+## Objetivos de la clase
+
+::: incremental
+-   Conceptos e ideas generales de reproducibilidad 
+-   Buenas prácticas para escribir código 
+-   Tidyverse
+:::
+
+## Porqué?
+
+::: columns
+::: {.column width="50%"}
+![](figuras/tidyverse.png){fig-cap="Una constelación de hex stickers del ecosistema tidyverse por Allison Horst"}
+:::
+
+::: {.column width="50%"}
+::: {.fragment .fade-up}
+-   Código eficiente nos hace la vida más fácil
+:::
+
+::: {.fragment .fade-up}
+-   Somos humanos: código claro y entendible minimiza posibilidad de errores
+:::
+
+::: {.fragment .fade-up}
+-   Filosofía Tidyverse ordenada
+:::
+:::
+:::
+
+## Reglas de oro generales de reproducibilidad
+
+Lista según [Reproducible Data Science](https://ecorepsci.github.io/reproducible-science/project-organization.html)
+
+1.  Los datos crudos **nunca** deben modificarse. Datos procesados deben ir en una carpeta aparte.
+2.  Resultados de código deben guardarse en su propia carpeta.
+3.  Los códigos van en su propia carpeta.
+4.  Siempre modularizar el código: en lugar de un único script gigante, dividir el flujo de trabajo en scripts cortos.
+5.  Apuntar escribir a código seco: **DRY** do not repeat yourself
+
+## Escribir "buen" código
+
+::: columns
+::: {.column width="50%"}
+![](https://psyteachr.github.io/reprores-v4/images/memes/wickham-shitty-code.png)
+:::
+
+::: {.column width="50%"}
+::: {.fragment .fade-up}
+-   Leíble por humanos y computadoras, ordenable
+:::
+
+::: {.fragment .fade-up}
+-   Reusable
+:::
+
+::: {.fragment .fade-up}
+-   Robusto
+:::
+:::
+:::
+
+## Leíble por humanos y computadoras, ordenable
+
+1. Nombrar archivos y carpetas de forma consistente
+2. Comentar el código
+3. Ordenar las carpetas y dejar un registro de instrucciones
+
+## Nombrar archivos y carpetas de forma consistente
+
+- Usa nombres claros, sin espacios ni caracteres especiales
+- Usar prefijos numéricos en scripts, para ayudar al orden alfabético y cronológico.
+
+## ![](figuras/camello.jpeg){fig-align="center" height=40%}
+
+## Comentar el código 
+
+- La idea es explicar el por qué  del código, no solamente que hace.
+- Que otro humano entienda el razonamiento detrás del código.
+
+## Ordenar los directorios y carpetas
+
+- Evitar “path spaghetti” ni rutas absolutas (C:/Users/...)
+- Dejar huella para tu “yo futuro”.
+- Un README.md claro con instrucciones mínimas.
+- Ayuda a que cualquier persona (incluyéndote a ti) pueda retomar el proyecto meses después.
+
+## 
+
+::: {#fig-folder layout-ncol="2"}
+
+![](https://ecorepsci.github.io/reproducible-science/img/activity-based-directory-organization.jpg)
+
+![](https://ecorepsci.github.io/reproducible-science/img/project-based-directory-organization.jpg) 
+
+Enfoques
+:::
+
+## Reusable
+
+::: incremental
+-   Separar datos de scripts. 
+-   Crear el código para usar constantes solo una vez.
+-   Solo una cosa a la vez, aplica para funciones y scripts.
+-   Código seco (DRY) do not repear yourself.
+:::
+
+## Robusto
+
+::: incremental
+
+-   Si hay las suposiciones o condiciones, declararlas
+-   Verificar los valores antes de procesarlos.
+-   Identificar excepciones.
+-   Generar errores cuando no se cumplan las expectativas.
+
+:::
+
+## Robusto
+
+```{r}
+#| echo: true
+
+nombre_region <- function(x) {
+  regiones <- data.frame(
+    numero = 1:16,
+    region = c(
+      "Tarapacá", "Antofagasta", "Atacama", "Coquimbo", "Valparaíso",
+      "O'Higgins", "Maule", "Biobío", "La Araucanía", "Los Lagos",
+      "Aysén", "Magallanes", "Metropolitana", "Los Ríos",
+      "Arica y Parinacota", "Ñuble"
+    )
+  )
+  regiones$region[match(x, regiones$numero)]
+}
+
+nombre_region(13)
+
+```
+
+## Robusto
+
+```{r}
+#| echo: true
+
+nombre_region <- function(x) {
+  regiones <- data.frame(
+    numero = 1:16,
+    region = c(
+      "Tarapacá", "Antofagasta", "Atacama", "Coquimbo", "Valparaíso",
+      "O'Higgins", "Maule", "Biobío", "La Araucanía", "Los Lagos",
+      "Aysén", "Magallanes", "Metropolitana", "Los Ríos",
+      "Arica y Parinacota", "Ñuble"
+    )
+  )
+  regiones$region[match(x, regiones$numero)]
+}
+
+nombre_region(17)
+
+```
+
+## Análisis exploratorio de datos (EDA)
+
+::: incremental
+-   Preguntas sobre los datos de investigación.
+-   Buscar respuestas visualizando, transformando y modelando.
+-   En base a lo explorado, refinar hipótesis y preguntas anteriores.
+-   Nuevas preguntas → Nuevos análisis → Nuevos modelos.
+-   Librería Tidyverse
+:::
+
+## Flujo de trabajo EDA
+
+::: columns
+::: {.column width="50%"}
+![](https://posit.co/wp-content/themes/Posit/public/markdown-blogs/artist-in-residence/horst-eco-r4ds.png)
+:::
+
+::: {.column width="50%"}
+::: {.fragment .fade-up}
+-   Comenzamos importando datos
+:::
+
+::: {.fragment .fade-up}
+-   Hacemos nuestro EDA transformar → visualizar → modelar
+:::
+
+::: {.fragment .fade-up}
+-   Avanzamos a la comunicación (posters, presentaciones, reportes, papers...)
+:::
+:::
+:::
+
+## Librería en R: Tidyverse
+
+Tidyverse: 
+
+* Megapaquete que contiene paquetes para el análisis datos
+* Construidos con los mismos principios
+
+La filosofía del paquete
+
+* Reusar estructuras de datos
+* Utilizar el operador `pipe %>% ` para combinar funciones
+* Pensado para "humanos"
+
+## Librería en R: Tidyverse
+
+Ejemplo: un pedazo de torta a partir de ingredientes
+
+::: {.incremental}
+- Ingredientes (harina, azúcar, etc.) 🛒
+- Mezclar en un bowl ingredientes 🥣
+- Hornear la mezcla ⏲️
+- Decorar el bizcocho 🥧
+- Cortar 🍰
+:::
+
+## Como veríamos el código en R
+
+```
+ingredientes(c=(harina, azúcar)) %>% 
+mezclar(🥣) %>% 
+hornar(⏲️) %>% 
+decorar(🥧) %>% 
+cortar(🍰)
+
+```
+
+## Paquetes
+
+- **ggplot2** : visualización de datos 
+- **dplyr** : transformar datos  
+- **tidyr** : formatear los datos (ejemplo pasando de wide a long)
+- **readr** : importar datos de texto (csv, tsv...).  
+- **purrr** : programación funcional
+- **tibble** : data frames tibble
+- **stringr** y **forcats** : manipulación de cadenas de texto y factores (categorías).  
+
+# [Clase introductoria lista! Veamos código 👩🏽‍💻]{.r-fit-text} {background-color="#40666e"}
+
+

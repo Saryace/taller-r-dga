@@ -1,0 +1,90 @@
+---
+title: Taller R - DGA
+subtitle: Tidyverse + ggplot2
+format: revealjs
+author:
+  - name: Dra. Sara E. Acevedo
+    orcid: 0000-0003-3203-2106
+    email: seaceved@uc.cl
+    affiliations: PUC - CEDEUS
+  - name: Dra. Alejandra S. Vega
+    orcid: 0000-0002-2842-8178
+    email: asvega@uc.cl
+    affiliations: CEDEUS
+date: "08/09/2025"
+date-format: "iso"
+---
+
+## Acerca de nosotras 👩🏽‍💻
+
+- **Sara Acevedo** (🐈): Profesora Asistente Facultad de Agronomía de Sistemas Naturales - Física de suelos / Suelos urbanos / Ciencia Reproducible 
+
+- **Alejandra Vega** (🐕): Investigadora CEDEUS - Geoquímica de suelos / Suelos urbanos / Calidad del Agua
+
+## Objetivos de la clase
+
+::: incremental
+-   Continuamos con tidyverse (más avanzado)
+-   Join y Pivot
+-   Introducción a ggplot2
+:::
+
+## Formato tidy
+
+* Cada variable forma su propia columna 
+* Cada observación forma una fila
+* Y cada celda es un único valor
+
+![tidy data](figuras/tidy_data.png)
+Más info en R4DS [tidy data](https://r4ds.had.co.nz/tidy-data.html)
+
+## Formatos long y wide
+
+* El formato *wide* es el formato típico tidy rectangular
+* El formato *long* se usa para agrupar 
+* El formato *long* se usa para visualización de datos con `ggplot2` y hacer estadística
+
+## Es común intercambiar entre formatos
+
+:::: {.columns}
+
+::: {.column width="40%"}
+![](figuras/pivot_wider_longer.gif)
+:::
+
+::: {.column width="60%"}
+* `pivot_longer()` transforma a formato long
+* `pivot_wider()` transforma a formato wide
+* [Acá](https://github.com/gadenbuie/tidyexplain) más material dinámico por Garrick Aden-Buie
+:::
+
+::::
+
+
+## Uniones de datos: operaciones join
+
+inner_join() fusiona variables de dos conjuntos de datos, pero conserva sólo las filas con un ID común
+
+![](figuras/inner.gif){width=80%}
+
+## Uniones de datos: operaciones join
+
+left_join() fusiona variables de dos conjuntos de datos, pero conserva sólo los ID común de la izquierda 
+
+![](figuras/left.gif){width=80%}
+
+## Uniones de datos: operaciones join
+
+right_join() fusiona variables de dos conjuntos de datos, pero conserva sólo los ID común de la derecha
+
+![](figuras/right.gif){width=80%}
+
+## Uniones de datos: operaciones join
+
+full_join() retiene todas las filas de los dos conjuntos de datos de entrada e inserta `NA` cuando falta un ID 
+
+![](figuras/full.gif){width=80%}
+
+# [Clase lista! Veamos código 👩🏽‍💻]{.r-fit-text} {background-color="#40666e"}
+
+
