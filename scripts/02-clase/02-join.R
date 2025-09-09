@@ -33,6 +33,8 @@ cuenca_maipo_descripcion <- cuenca_maipo_limpio %>%
   left_join(parametros, join_by("par_codigo" == "codigo")) %>%
   left_join(estaciones, join_by("est_codigo" == "codigo"))
 
+glimpse(cuenca_maipo_descripcion)
+
 # Join para analizar datos ------------------------------------------------
 # Ejemplo inner_join
 # Une dos data frames devolviendo solo las filas que coinciden

@@ -17,7 +17,7 @@ date-format: "iso"
 
 ## Acerca de nosotras 👩🏽‍💻
 
-- **Sara Acevedo** (🐈): Profesora Asistente Facultad de Agronomía de Sistemas Naturales - Física de suelos / Suelos urbanos / Ciencia Reproducible 
+- **Sara Acevedo** (🐈): Profesora Asistente Facultad de Agronomía y Sistemas Naturales - Física de suelos / Suelos urbanos / Ciencia Reproducible 
 
 - **Alejandra Vega** (🐕): Investigadora CEDEUS - Geoquímica de suelos / Suelos urbanos / Calidad del Agua
 
@@ -125,7 +125,7 @@ Enfoques
 -   Separar datos de scripts. 
 -   Crear el código para usar constantes solo una vez.
 -   Solo una cosa a la vez, aplica para funciones y scripts.
--   Código seco (DRY) do not repear yourself.
+-   Código seco (DRY) do not repeat yourself.
 :::
 
 ## Robusto

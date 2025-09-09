@@ -106,4 +106,3 @@ rm(
 sessionInfo() # impreso consola
 
 writeLines(capture.output(sessionInfo()), "session_info.txt") # se guarda
-
