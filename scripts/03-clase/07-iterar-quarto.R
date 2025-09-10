@@ -3,6 +3,7 @@
 library(tidyverse)
 library(quarto)
 library(glue)
+library(fs)
 
 # Vamos! ------------------------------------------------------------------
 

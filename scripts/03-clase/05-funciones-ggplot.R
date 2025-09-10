@@ -3,7 +3,7 @@
 # lm dos metales totales --------------------------------------------------
 
 wide_por_anio %>%
-  select(ends_with("_total")) %>%
+  select(anio, ends_with("_total")) %>%
   ggplot(aes(x = cobre_total, y = arsenico_total)) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE) +
@@ -32,5 +32,5 @@ ggplot_funcion_anual_totales = function(x) {
     theme_bw()
 }
 
-ggplot_funcion_anual_totales(x = "cadmio_total")
+ggplot_funcion_anual_totales(x = "magnesio_total")
 

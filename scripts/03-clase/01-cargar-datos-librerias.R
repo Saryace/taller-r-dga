@@ -4,6 +4,8 @@ library(tidyverse)
 library(readxl)
 library(janitor)
 library(esquisse)
+library(fs)
+library(glue)
 
 # Cargar datos ------------------------------------------------------------
 

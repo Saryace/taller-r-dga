@@ -10,7 +10,7 @@ execute:
   warning: false
   message: false
 params:
-  est_codigo: "5722002"   # estación ejemplo
+  est_codigo: "5722002"   # estación ejemplo 
   par_codigo: ["6020","5020"] # pH y Conductividad
 ---
 
@@ -71,7 +71,7 @@ datos_reporte <- cuenca_maipo_descripcion %>%
     par_codigo %in% params$par_codigo
   )
 
-fecha_reporte <- Sys.Date()
+fecha_reporte <- format(Sys.time(), "%A %d/%m/%Y")
 
 # extraigo los nombres
 parametros_seleccionados <- datos_reporte %>%
@@ -121,7 +121,7 @@ plot_reporte <- cuenca_maipo_descripcion %>%
     par_codigo %in% params$par_codigo
   ) %>%
   group_by(par_codigo, est_codigo, descripcion) %>%
-  group_split() %>%
+  group_split() %>% # group_split + imap
   imap(~ {
     ggplot(.x, aes(agu_fecha, agu_valor)) +
       geom_point(alpha = 0.7, size = 0.9) +

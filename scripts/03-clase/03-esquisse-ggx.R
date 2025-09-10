@@ -23,7 +23,9 @@ long_por_anio %>%
     x = "Año",
     y = "Número"
   ) +
-  theme_bw()
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 45)) +
+  theme(axis.title.x=element_text(size=rel(1.5)))
 
 gghelp("remove legend")
 gghelp("Rotate x-axis 45 degrees")

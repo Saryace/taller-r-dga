@@ -1,0 +1,9 @@
+---
+title: "ejemplo_quarto_taller"
+author: "Ale Vega"
+format: pdf
+---
+```{r}
+1 + 1
+```
+

@@ -20,14 +20,34 @@ hr_perc <- c(90, 86, 90, 83, 94, 92, 99)
 
 tipo <- c("A", "B", "A", "B", "B", "A", "B")
 
+tipo_largo <- c("A", "B", "A", "B", "B", "A", "B", "C", "C")
+
+# Vectores "sueltos" ------------------------------------------------------
+
 ggplot(mapping = aes(x = pp_mm, y = hr_perc)) +
   geom_point()
 
-pp_vs_hr <- tibble(pp_mm = pp_mm,
+pp_vs_hr_tb <- tibble(pp_mm = pp_mm,
                    hr_perc = hr_perc,
                    tipo = tipo) # similar data.frame
 
-ggplot(data = pp_vs_hr,
+pp_vs_hr_df <- data.frame(pp_mm = pp_mm,
+                   hr_perc = hr_perc,
+                   tipo = tipo) # data.frame
+
+# ejemplo tibble simetrico ------------------------------------------------
+
+pp_vs_hr_error <- tibble(pp_mm = pp_mm,
+                      hr_perc = hr_perc,
+                      tipo = tipo_largo) # vector mas largo
+
+pp_vs_hr_reciclaje <- tibble(pp_mm = pp_mm,
+                         hr_perc = hr_perc,
+                         tipo = "solo un tipo")
+
+# Si no es explicito, siempre ocupa x e y ---------------------------------
+
+ggplot(data = pp_vs_hr_reciclaje,
        mapping = aes(x = pp_mm, y = hr_perc)) +
   geom_point()
 
@@ -44,8 +64,10 @@ ggplot(mapping = aes(x = pp_mm, y = hr_perc)) # mas tiene que ir aca
 ggplot(data = pp_vs_hr,
        mapping = aes(x = pp_mm, y = hr_perc)) +
   geom_point() +
-  geom_hline(yintercept = 85) +
-  geom_vline(xintercept = 3)
+  geom_vline(xintercept = 3) +
+  geom_hline(yintercept = 85)
+
+# el orden importa
 
 # la funcion theme() controla la "decoracion" -----------------------------
 
@@ -63,7 +85,7 @@ ggplot(data = pp_vs_hr,
   geom_bar() # veamos el error
 
 ggplot(data = pp_vs_hr,
-       mapping = aes(x = tipo)) +
+       mapping = aes(y = tipo)) +
   geom_bar() # hace un conteo
 
 # comparemos geom_col vs geom_bar -----------------------------------------

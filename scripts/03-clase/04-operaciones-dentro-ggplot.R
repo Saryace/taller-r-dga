@@ -17,7 +17,7 @@ ggplot(
   ),
   aes(
     x = anio,
-    y = fct_reorder(parametro, n, .fun = sum),
+    y = fct_reorder(parametro, n),
     fill = n
   )
 ) +
@@ -36,10 +36,11 @@ metales <- tibble(descripcion = c("cobre_total","plomo_total","arsenico_total"),
                    par_codigo = c("8145", "8383","8041"))
 
 # Mi primer intento -------------------------------------------------------
+# operador %in%
 
 cuenca_maipo_descripcion %>%
   filter(par_codigo %in% metales$par_codigo) %>%
-  ggplot(aes(x = agu_fecha, y = agu_valor * 1000)) +
+  ggplot(aes(x = agu_fecha, y = agu_valor * 1000)) + # ppm a ppb
   geom_point(aes(color = descripcion)) +
   scale_y_log10() # log10(x) valido solo x > 0
 

@@ -5,6 +5,11 @@ estaciones_maipo <- unique(cuenca_maipo_limpio$est_codigo) # son 189
 
 # podria ser distinct
 
+# Cronometrar -------------------------------------------------------------
+
+library(tictoc)
+
+tic()
 pH_estaciones_maipo <- map(estaciones_maipo, ~ {
   cuenca_maipo_limpio %>%
     filter(par_codigo == 6020 & est_codigo == .x) %>%
@@ -14,8 +19,15 @@ pH_estaciones_maipo <- map(estaciones_maipo, ~ {
     labs(x = "Fecha", y = "Valor pH", title = .x) +
     theme_bw()
 })
+toc()
 
-pH_estaciones_maipo[[189]]
+pH_estaciones_maipo[[189]] # ejecutar para imprimir
+
+# ggsave ------------------------------------------------------------------
+
+ggsave("outputs/plot_ejemplo_ph.png", pH_estaciones_maipo[[189]])
+
+# Ejemplo para hora min y max ---------------------------------------------
 
 cuenca_maipo_limpio %>%
   filter(par_codigo == 6020, est_codigo == "5713003") %>%
@@ -27,7 +39,7 @@ cuenca_maipo_limpio %>%
 lista_ejemplo_nombres <- list(a = 10, b = 20, c = 30)
 names(lista_ejemplo_nombres)
 
-iwalk(lista_ejemplo, ~ {
+iwalk(lista_ejemplo_nombres, ~ {
   print(glue::glue("{.x}, {.y}"))
 })
 
