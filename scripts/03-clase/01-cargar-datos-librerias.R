@@ -36,6 +36,29 @@ parametros <- read_excel("datos/Parametros.xlsx",
 
 # Datos con descripcion ---------------------------------------------------
 
+cuenca_maipo_limpio <- cuenca_maipo %>%
+  mutate(
+    agu_fecha = ymd(agu_fecha),
+    agu_hora = hm(agu_hora),
+    agu_valor = as.numeric(agu_valor)
+  )
+
 cuenca_maipo_descripcion <- cuenca_maipo_limpio %>%
   left_join(parametros, join_by("par_codigo" == "codigo")) %>%
   left_join(estaciones, join_by("est_codigo" == "codigo"))
+
+wide_por_anio <- cuenca_maipo_descripcion %>%
+  mutate(anio = lubridate::year(agu_fecha)) %>%
+  group_by(anio, descripcion) %>%
+  summarise(n = n(), .groups = "drop") %>%
+  pivot_wider(
+    id_cols = anio,
+    names_from = descripcion,
+    values_from = n,
+    values_fill = 0 # si no hay, no se midió
+  ) %>%
+  clean_names()
+
+long_por_anio <-
+wide_por_anio %>%
+  pivot_longer(-anio, names_to = "parametro", values_to = "n")

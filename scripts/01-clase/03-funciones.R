@@ -17,7 +17,10 @@ vector <- 1:10 # operador : inicio:fin con enteros
 
 # Creo una lista
 
-lista <- list(1:10)
+lista <- list(numeros = 1:10)
+
+lista_ejemplo <- list(numeros = as.numeric(1:10),
+              letras = c("A", "B"))
 
 # Usemos la funcion -------------------------------------------------------
 
@@ -36,6 +39,7 @@ purrr::map(lista, multiplicar_por_10) # 🙂 funciona con listas!
 # multiplicar por 10 tiene nombre
 
 purrr::map_dbl(vector, ~ .x * 10)   # función anónima
+# funcion map(vector, ~ cuerpo funcion con .x)
 
 # ~ .x * 10  función anónima que toma un valor y lo multiplica por 10.
 # .x representa los valores
@@ -47,7 +51,7 @@ purrr::map_dbl(vector, ~ .x * 10)   # función anónima
 pH_estacion_5722002 <-
 cuenca_maipo_limpio %>%
   filter(par_codigo == 6020 & est_codigo == 5722002) %>%
-  filter(agu_valor < 14 & agu_valor > 2) %>%
+  filter(agu_valor < 14 & agu_valor > 2) %>% # revisar min y max
   ggplot(aes(x = agu_fecha, y = agu_valor)) +
   geom_point() +
   labs(x = "Fecha", y = "Valor pH", title = 5722002) +
@@ -61,9 +65,11 @@ is.list(pH_estacion_5722002) # TRUE
 
 # Quiero todas las subcuencas! --------------------------------------------
 
-subcuencas <- unique(cuenca_maipo_limpio$est_codigo) # son 189
+estaciones_maipo <- unique(cuenca_maipo_limpio$est_codigo) # son 189
 
-pH_subcuencas <- map(subcuencas, ~ {
+# podria ser distinct
+
+pH_estaciones_maipo <- map(estaciones_maipo, ~ {
   cuenca_maipo_limpio %>%
     filter(par_codigo == 6020 & est_codigo == .x) %>%
     filter(agu_valor < 14 & agu_valor > 2) %>%
@@ -73,4 +79,5 @@ pH_subcuencas <- map(subcuencas, ~ {
     theme_bw()
 })
 
-pH_subcuencas[[118]]
+
+pH_estaciones_maipo[[189]]

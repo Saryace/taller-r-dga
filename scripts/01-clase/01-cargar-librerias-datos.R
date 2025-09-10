@@ -2,6 +2,12 @@
 library(tidyverse)
 library(readxl)
 library(janitor)
+library(glue)
+library(fs)
+
+# Ejemplo instalar --------------------------------------------------------
+
+# install.packages("beepr")
 
 # Como instalar una libreria en R -----------------------------------------
 # Una vez en la consola, ejecutar install.packages("readxl")

@@ -1,0 +1,139 @@
+---
+title: "Reporte por estación - Cuenca del Maipo"
+author: "Sara Acevedo"
+lang: es
+format:
+  pdf:
+    number-sections: true
+execute:
+  echo: false
+  warning: false
+  message: false
+params:
+  est_codigo: "5722002"   # estación ejemplo
+  par_codigo: ["6020","5020"] # pH y Conductividad
+---
+
+```{r}
+library(tidyverse)
+library(scales)
+library(glue)
+library(tidyr)
+library(janitor)
+library(readxl)
+library(kableExtra)
+
+# Cargo datos
+
+configuracion_local <- locale(
+  decimal_mark = ",", # decimales usan coma
+  grouping_mark = ".", # miles usan punto
+  encoding = "UTF-8" # Se usan ñ y caracteres
+)
+
+estaciones <- read_excel("datos/Estaciones2.xlsx",
+  range = cell_cols(c("A", "B")),
+  col_types = "text"
+) %>%
+  clean_names()
+
+parametros <- read_excel("datos/Parametros.xlsx",
+  skip = 6,
+  col_types = "text"
+) %>%
+  clean_names() %>%
+  select(codigo, descripcion, unidadf)
+
+cuenca_maipo <- read_csv(
+  "datos/datos_Maipo.csv",
+  col_types = cols(.default = col_character()),
+  locale = configuracion_local
+) %>%
+  clean_names() %>%
+  select(-x1, -orden)
+
+cuenca_maipo_limpio <- cuenca_maipo %>%
+  mutate(
+    agu_fecha = ymd(agu_fecha),
+    agu_hora = hm(agu_hora),
+    agu_valor = as.numeric(agu_valor)
+  )
+
+cuenca_maipo_descripcion <- cuenca_maipo_limpio %>%
+  left_join(parametros, join_by("par_codigo" == "codigo")) %>%
+  left_join(estaciones, join_by("est_codigo" == "codigo"))
+```
+
+```{r}
+datos_reporte <- cuenca_maipo_descripcion %>%
+  filter(
+    est_codigo == params$est_codigo,
+    par_codigo %in% params$par_codigo
+  )
+
+fecha_reporte <- Sys.Date()
+
+# extraigo los nombres
+parametros_seleccionados <- datos_reporte %>%
+  distinct(par_codigo, descripcion) %>%
+  pull(descripcion)
+
+n_parametros <- length(parametros_seleccionados)
+```
+# Estación `r params$est_codigo`
+En la fecha de `r format(Sys.Date(), "%d-%m-%Y")` se generó un informe usando los datos
+de la estación `r params$est_codigo`, resumiendo todas las variables y graficando los
+`r length(parametros_seleccionados)` siguientes parámetros seleccionados:
+`r paste(parametros_seleccionados, collapse = ", ")`.
+
+```{r}
+resumen <- cuenca_maipo_descripcion %>%
+  filter(est_codigo == params$est_codigo) %>% 
+  group_by(descripcion) %>%
+  drop_na() %>%
+  summarise(
+    n = sum(!is.na(agu_valor)),
+    promedio = mean(agu_valor, na.rm = TRUE),
+    desvest = sd(agu_valor, na.rm = TRUE),
+    min = min(agu_valor, na.rm = TRUE),
+    max = max(agu_valor, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  arrange(desc(n))
+
+resumen %>%
+  kable(
+    format = "latex", booktabs = TRUE,
+    caption = "Resumen de parámetros",
+    longtable = TRUE,
+    digits = 2
+  ) %>%
+  kable_styling(
+    latex_options = c("striped", "hold_position", "repeat_header"),
+    font_size = 9
+  )
+```
+
+```{r}
+plot_reporte <- cuenca_maipo_descripcion %>%
+  filter(
+    est_codigo == params$est_codigo,
+    par_codigo %in% params$par_codigo
+  ) %>%
+  group_by(par_codigo, est_codigo, descripcion) %>%
+  group_split() %>%
+  imap(~ {
+    ggplot(.x, aes(agu_fecha, agu_valor)) +
+      geom_point(alpha = 0.7, size = 0.9) +
+      geom_smooth(se = FALSE, linewidth = 0.6) +
+      scale_x_date(date_breaks = "5 years", date_labels = "%Y") +
+      labs(
+        title = glue("Estación {params$est_codigo} / {first(.x$descripcion)}"),
+        x = "Fecha", y = "Valor"
+      ) +
+      theme_bw() +
+      theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  })
+
+walk(plot_reporte, print)
+```

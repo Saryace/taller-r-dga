@@ -36,6 +36,7 @@ intervalos <- terra::time(netcdf_nieve) # datos diarios
 plot(netcdf_nieve)
 
 # Funciones terra ---------------------------------------------------------
+# [fila , columna] [1 , 1] = primera fila, primera columa
 
 # SWE promedio
 swe_promedio <- global(netcdf_nieve, fun = mean, na.rm = TRUE)
@@ -48,7 +49,7 @@ sca_promedio <- global(netcdf_nieve > 0, fun = mean, na.rm = TRUE)[,1]
 # Da cero? porqué?
 
 # Carguemos 04 y 07 -------------------------------------------------------
-
+# funcion list.files
 archivos_nc <- list.files(
   path = "datos",      # carpeta
   pattern = "\\.nc$",  # regex: termina en .nc, expresiones regulares!
@@ -61,10 +62,12 @@ prom_swe_sca <- purrr::map_dfr(archivos_nc, ~{
   netcdf_nieve <- rast(.x)
   intervalos <- terra::time(netcdf_nieve)
   tibble(
-    date     = as.Date(intervalos),
+    fecha     = as.Date(intervalos),
     swe_promedio = as.numeric(terra::global(netcdf_nieve,      mean, na.rm = TRUE)[1, ]),
     sca_promedio = as.numeric(terra::global(netcdf_nieve > 0,  mean, na.rm = TRUE)[1, ]),
     origen  = basename(.x) #nombre archivos
   )
 })
+
+
 

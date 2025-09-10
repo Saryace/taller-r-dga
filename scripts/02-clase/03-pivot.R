@@ -12,11 +12,11 @@ glimpse(cuenca_maipo_descripcion)
 
 wide_por_anio <- cuenca_maipo_descripcion %>%
   mutate(anio = lubridate::year(agu_fecha)) %>%
-  group_by(anio, descripcion) %>%
+  group_by(anio, par_codigo) %>%
   summarise(n = n(), .groups = "drop") %>%
   pivot_wider(
     id_cols = anio,
-    names_from = descripcion,
+    names_from = par_codigo,
     values_from = n,
     values_fill = 0 # si no hay, no se midió
   ) %>%
@@ -62,3 +62,8 @@ long_por_anio <- wide_por_anio %>%
     names_to = "parametro",        # nombre de la variable
     values_to = "conteo"           # valor de la celda
   )
+
+# Ejemplo extra -----------------------------------------------------------
+
+# dejar explicito otro wide con dos variables
+

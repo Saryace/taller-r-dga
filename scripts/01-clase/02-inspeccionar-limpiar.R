@@ -30,14 +30,13 @@ cuenca_maipo_limpio %>%
 cuenca_maipo_limpio %>%
   mutate(anio = year(agu_fecha)) %>%
   group_by(par_codigo, anio) %>%
-  summarise(n = n()) %>%
-  ungroup() %>% # nos aseguramos que no haga doble grupo
+  summarise(n = n(), .groups = "drop") %>%
   group_by(par_codigo) %>%
   summarise(
     n_anios = n_distinct(anio), # cuenta obs única
     total_n = sum(n) # suma en este caso "n" = totales
   ) %>%
-  arrange(desc(total_n)) # arrange(desc()) = mayor a menor
+  arrange(desc(n_anios)) # arrange(desc()) = mayor a menor
 
 # Exportar información  ---------------------------------------------------
 # write_csv() usa estilo USA (punto decimal, coma separador)
@@ -47,3 +46,14 @@ cuenca_maipo_limpio %>%
 
 write_csv(cuenca_maipo_limpio,
           "outputs/csv_procesados/cuenca_maipo_limpio.csv")
+
+# Notas: factores ---------------------------------------------------------
+
+meses_anio <- c("E","F","M","A","My","J","Jl", "Ag", "S", "O", "N", "D")
+
+# meses anio es solo un vector de chr
+
+meses_como_factor <- factor(meses_anio, labels = meses_anio)
+
+
+

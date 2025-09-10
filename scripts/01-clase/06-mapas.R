@@ -10,6 +10,18 @@ library(grid)
 
 sf::sf_use_s2(FALSE) # ajustes geometria estándar
 
+
+# Descarga de datos -------------------------------------------------------
+
+# gadm41_CHL_shp
+# https://geodata.ucdavis.edu/gadm/gadm4.1/shp/gadm41_CHL_shp.zip
+# SubCuencas_BNA
+# https://www.geoportal.cl/geoportal/catalog/35266/Subcuencas
+# HydroRIVERS
+# https://data.hydrosheds.org/file/HydroRIVERS/HydroRIVERS_v10_sa_shp.zip
+
+# descomprimir y dejar en la carpeta datos antes de ejecutar el código
+# -------------------------------------------------------------------------
 regiones <-
   st_read("datos/gadm41_CHL_shp/gadm41_CHL_1.shp", quiet = TRUE)  %>%
   st_make_valid() # repara geometrias
@@ -74,7 +86,7 @@ ggplot() +
     pad_y = unit(0.2, "cm")
   ) +
   annotation_north_arrow(location = "tr", style = north_arrow_fancy_orienteering) +
-  theme_minimal() +
+  theme_void() +
   labs(title = "Subcuencas BNA - Región de la Araucanía",
        caption = "Fuentes: GADM 4.1 , Geoportal de Chile, HydroRIVERS",
        x = NULL, y = NULL)

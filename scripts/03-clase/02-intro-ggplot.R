@@ -47,7 +47,6 @@ ggplot(data = pp_vs_hr,
   geom_hline(yintercept = 85) +
   geom_vline(xintercept = 3)
 
-
 # la funcion theme() controla la "decoracion" -----------------------------
 
 ggplot(data = pp_vs_hr,

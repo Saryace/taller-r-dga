@@ -5,7 +5,7 @@
 # Google Drive ------------------------------------------------------------
 
 library(googledrive)
-drive_deauth() # asegurarnos que funcione el ejemplo
+# drive_deauth() # asegurarnos que funcione el ejemplo
 drive_auth() # se abre sesión
 
 # Explorar ----------------------------------------------------------------
@@ -24,10 +24,11 @@ drive_find(pattern = "\\bSession\\b")
 
 # Descargar, subir, borrar (CUIDADO) --------------------------------------
 
-drive_mkdir("carpeta_nueva")
+drive_mkdir("carpeta_nueva_2")
 
-drive_upload ("datos/datos_Maipo.csv", path = '~/carpeta_nueva/', overwrite = TRUE)
-
+drive_upload("datos/datos_Maipo.csv",
+             path = '~/carpeta_nueva_2/',
+             overwrite = TRUE)
 
 # Dropbox -----------------------------------------------------------------
 
